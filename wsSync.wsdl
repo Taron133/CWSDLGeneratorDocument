@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://127.0.0.1/CWSDLGeneratorDocument/syncService.php" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" name="Sync" targetNamespace="http://127.0.0.1/CWSDLGeneratorDocument/syncService.php">
+  <types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" xmlns:tns="http://127.0.0.1/CWSDLGeneratorDocument/syncService.php" targetNamespace="http://127.0.0.1/CWSDLGeneratorDocument/syncService.php">
+      <xsd:complexType name="Array2X">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="items" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:element name="auth" type="tns:auth"/>
+      <xsd:complexType name="auth">
+        <xsd:sequence>
+          <xsd:element name="login" type="xsd:string"/>
+          <xsd:element name="pass" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="authResponse" type="tns:authResponse"/>
+      <xsd:complexType name="authResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:boolean"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="exitAuth" type="tns:exitAuth"/>
+      <xsd:complexType name="exitAuth">
+        <xsd:sequence/>
+      </xsd:complexType>
+      <xsd:element name="exitAuthResponse" type="tns:exitAuthResponse"/>
+      <xsd:complexType name="exitAuthResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:boolean"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getHelloWorld" type="tns:getHelloWorld"/>
+      <xsd:complexType name="getHelloWorld">
+        <xsd:sequence>
+          <xsd:element name="Array2X" type="tns:Array2X"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getHelloWorldResponse" type="tns:getHelloWorldResponse"/>
+      <xsd:complexType name="getHelloWorldResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getHelloWorld2" type="tns:getHelloWorld2"/>
+      <xsd:complexType name="getHelloWorld2">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="arr" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getHelloWorld2Response" type="tns:getHelloWorld2Response"/>
+      <xsd:complexType name="getHelloWorld2Response">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getTest" type="tns:getTest"/>
+      <xsd:complexType name="getTest">
+        <xsd:sequence>
+          <xsd:element name="obj" type="xsd:string"/>
+          <xsd:element name="obj2" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getTestResponse" type="tns:getTestResponse"/>
+      <xsd:complexType name="getTestResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <portType name="SyncPortType">
+    <operation name="auth">
+      <documentation>auth doc</documentation>
+      <input message="tns:authIn"/>
+      <output message="tns:authOut"/>
+    </operation>
+    <operation name="exitAuth">
+      <documentation>exitAuth doc</documentation>
+      <input message="tns:exitAuthIn"/>
+      <output message="tns:exitAuthOut"/>
+    </operation>
+    <operation name="getHelloWorld">
+      <documentation>getHelloWorld doc</documentation>
+      <input message="tns:getHelloWorldIn"/>
+      <output message="tns:getHelloWorldOut"/>
+    </operation>
+    <operation name="getHelloWorld2">
+      <documentation>getHelloWorld2 doc</documentation>
+      <input message="tns:getHelloWorld2In"/>
+      <output message="tns:getHelloWorld2Out"/>
+    </operation>
+    <operation name="getTest">
+      <documentation></documentation>
+      <input message="tns:getTestIn"/>
+      <output message="tns:getTestOut"/>
+    </operation>
+  </portType>
+  <binding name="SyncBinding" type="tns:SyncPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="auth">
+      <soap:operation soapAction="http://127.0.0.1/CWSDLGeneratorDocument/syncService.php#auth" style="document"/>
+      <input name="authResponse">
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="exitAuth">
+      <soap:operation soapAction="http://127.0.0.1/CWSDLGeneratorDocument/syncService.php#exitAuth" style="document"/>
+      <input name="exitAuthResponse">
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getHelloWorld">
+      <soap:operation soapAction="http://127.0.0.1/CWSDLGeneratorDocument/syncService.php#getHelloWorld" style="document"/>
+      <input name="getHelloWorldResponse">
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getHelloWorld2">
+      <soap:operation soapAction="http://127.0.0.1/CWSDLGeneratorDocument/syncService.php#getHelloWorld2" style="document"/>
+      <input name="getHelloWorld2Response">
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getTest">
+      <soap:operation soapAction="http://127.0.0.1/CWSDLGeneratorDocument/syncService.php#getTest" style="document"/>
+      <input name="getTestResponse">
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SyncService">
+    <port name="SyncPort" binding="tns:SyncBinding">
+      <soap:address location="http://127.0.0.1/CWSDLGeneratorDocument/syncService.php"/>
+    </port>
+  </service>
+  <message name="authIn">
+    <part name="parameters" element="tns:auth"/>
+  </message>
+  <message name="authOut">
+    <part name="parameters" element="tns:authResponse"/>
+  </message>
+  <message name="exitAuthIn">
+    <part name="parameters" element="tns:exitAuth"/>
+  </message>
+  <message name="exitAuthOut">
+    <part name="parameters" element="tns:exitAuthResponse"/>
+  </message>
+  <message name="getHelloWorldIn">
+    <part name="parameters" element="tns:getHelloWorld"/>
+  </message>
+  <message name="getHelloWorldOut">
+    <part name="parameters" element="tns:getHelloWorldResponse"/>
+  </message>
+  <message name="getHelloWorld2In">
+    <part name="parameters" element="tns:getHelloWorld2"/>
+  </message>
+  <message name="getHelloWorld2Out">
+    <part name="parameters" element="tns:getHelloWorld2Response"/>
+  </message>
+  <message name="getTestIn">
+    <part name="parameters" element="tns:getTest"/>
+  </message>
+  <message name="getTestOut">
+    <part name="parameters" element="tns:getTestResponse"/>
+  </message>
+</definitions>

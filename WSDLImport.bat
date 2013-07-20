@@ -1,0 +1,1 @@
+wsimport -keep http://127.0.0.1/CWSDLGeneratorDocument/syncService.php?wsdl
