@@ -264,12 +264,12 @@ class CWsdlGeneratorDocument
         $this->elements[$methodName] = $message;
 
 		if(preg_match('/^@return\s+([\w\.]+(\[\s*\])?)\s*?(.*)$/im',$comment,$matches))
-			$return=array($this->processType($matches[1]),trim($matches[2])); // type, doc
+			$return=array($this->processType($matches[1]),trim($matches[3])); // type, doc
 		else
 			$return=null;
 		$this->messages[$methodName.'Out'] = array('parameters' => array($methodName.'Response')); //=array('return'=>$return);
-        $this->elements[$methodName.'Response']=array(/*$methodName.'Result'*/'return'=>$return);;
-        //$this->elements[$methodName.'Response']=array($methodName.'Result'=>$return);;
+
+        $this->elements[$methodName.'Response']=array(/*$methodName.'Result'*/'return'=>$return);
 
 		if(preg_match('/^\/\*+\s*([^@]*?)\n@/s',$comment,$matches))
 			$doc=trim($matches[1]);
